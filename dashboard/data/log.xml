@@ -1,0 +1,26 @@
+<log>
+  <entry>
+    <timestamp>2026-03-07T08:12:05Z</timestamp>
+    <level>INFO</level>
+    <source>scheduler</source>
+    <message>Job queue started</message>
+  </entry>
+  <entry>
+    <timestamp>2026-03-07T08:14:11Z</timestamp>
+    <level>WARN</level>
+    <source>ingest</source>
+    <message>Delay detected while parsing payload</message>
+  </entry>
+  <entry>
+    <timestamp>2026-03-07T08:16:42Z</timestamp>
+    <level>ERROR</level>
+    <source>api</source>
+    <message>Failed to reach downstream service</message>
+  </entry>
+  <entry>
+    <timestamp>2026-03-07T08:20:12Z</timestamp>
+    <level>DEBUG</level>
+    <source>transformer</source>
+    <message>Normalized 124 records</message>
+  </entry>
+</log>

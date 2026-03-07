@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row g-4">
+    <div class="col-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3">
+            <div>
+              <h1 class="h4 mb-1">Live Log Snapshot</h1>
+              <div class="text-muted small">Source: {{ log_path }}</div>
+            </div>
+            <form class="d-flex gap-2" method="get" action="/">
+              <input
+                class="form-control"
+                type="text"
+                name="log"
+                placeholder="log.xml or /abs/path/log.xml"
+                aria-label="Log path"
+              />
+              <button class="btn btn-primary" type="submit">Load</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <div class="text-uppercase text-muted small">Total Entries</div>
+          <div class="display-6 fw-semibold">{{ stats.total }}</div>
+          <div class="text-muted">Latest: {{ stats.latest or "—" }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-8">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body">
+          <div class="text-uppercase text-muted small mb-3">Levels</div>
+          <div class="row row-cols-2 row-cols-md-4 g-3">
+            {% for level, count in stats.counts.items() %}
+              <div class="col">
+                <div class="level-pill level-{{ level|lower }}">
+                  <div class="small text-uppercase">{{ level }}</div>
+                  <div class="h5 mb-0">{{ count }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-white border-0">
+          <h2 class="h5 mb-0">Entries</h2>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th scope="col">Time</th>
+                <th scope="col">Level</th>
+                <th scope="col">Source</th>
+                <th scope="col">Message</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if entries %}
+                {% for row in entries %}
+                  <tr>
+                    <td class="text-nowrap">{{ row.timestamp or "—" }}</td>
+                    <td>
+                      <span class="badge rounded-pill bg-level-{{ row.level|lower }}">
+                        {{ row.level or "—" }}
+                      </span>
+                    </td>
+                    <td>{{ row.source or "—" }}</td>
+                    <td>{{ row.message or "—" }}</td>
+                  </tr>
+                {% endfor %}
+              {% else %}
+                <tr>
+                  <td colspan="4" class="text-center text-muted py-4">
+                    No entries found for this log file.
+                  </td>
+                </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

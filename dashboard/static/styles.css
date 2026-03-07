@@ -1,0 +1,65 @@
+:root {
+  --surface: #f6f7fb;
+  --accent-info: #3b82f6;
+  --accent-warn: #f59e0b;
+  --accent-error: #ef4444;
+  --accent-debug: #6b7280;
+  --accent-other: #10b981;
+}
+
+.bg-surface {
+  background: radial-gradient(circle at top, #ffffff 0%, var(--surface) 55%);
+  min-height: 100vh;
+}
+
+.level-pill {
+  border-radius: 16px;
+  padding: 12px 16px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+}
+
+.level-info {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.25);
+}
+
+.level-warn {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+.level-error {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.level-debug {
+  background: rgba(107, 114, 128, 0.12);
+  border-color: rgba(107, 114, 128, 0.25);
+}
+
+.level-other {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.badge.bg-level-info {
+  background: var(--accent-info);
+}
+
+.badge.bg-level-warn {
+  background: var(--accent-warn);
+}
+
+.badge.bg-level-error {
+  background: var(--accent-error);
+}
+
+.badge.bg-level-debug {
+  background: var(--accent-debug);
+}
+
+.badge.bg-level-other {
+  background: var(--accent-other);
+}
