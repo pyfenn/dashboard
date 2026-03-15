@@ -12,7 +12,7 @@ def _parse_args() -> argparse.Namespace:
 
     run_cmd = sub.add_parser("run", help="Run the dashboard server")
     run_cmd.add_argument("--host", default="0.0.0.0", help="Bind host")
-    run_cmd.add_argument("--port", default=5000, type=int, help="Bind port")
+    run_cmd.add_argument("--port", default=8000, type=int, help="Bind port")
     run_cmd.add_argument("--debug", action="store_true", help="Enable debug mode")
 
     return parser.parse_args()
