@@ -14,4 +14,4 @@ pip install -e .
 dashboard run
 ```
 
-Open http://localhost:5000
+Open http://localhost:8000
